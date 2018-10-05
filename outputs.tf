@@ -30,12 +30,12 @@ output "masters-internal.backend_address_pool" {
 output "public-agents.lb_address" {
   description = "lb address"
 
-  value = "${module.masters-internal.lb_address}"
+  value = "${module.public-agents.lb_address}"
 }
 
 # Public backend address pool ID
 output "public-agents.backend_address_pool" {
   description = "backend address pool"
 
-  value = "${module.masters-internal.backend_address_pool}"
+  value = "${module.public-agents.backend_address_pool}"
 }
