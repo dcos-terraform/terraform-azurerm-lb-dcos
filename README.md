@@ -39,9 +39,9 @@ module "lb-dcos" {
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
 | cluster_name | Name of the DC/OS cluster | string | - | yes |
-| location | Azure location | string | - | yes |
+| location | Azure Region | string | - | yes |
 | public_agents_additional_rules | Additional list of rules for public agents. These Rules are an additon to the default rules. | string | `<list>` | no |
-| resource_group_name | resource group name | string | - | yes |
+| resource_group_name | Name of the azure resource group | string | - | yes |
 | subnet_id | Subnet ID | string | - | yes |
 | tags | Add custom tags to all resources | map | `<map>` | no |
 

@@ -3,11 +3,11 @@ variable "cluster_name" {
 }
 
 variable "resource_group_name" {
-  description = "resource group name"
+  description = "Name of the azure resource group"
 }
 
 variable "location" {
-  description = "Azure location"
+  description = "Azure Region"
 }
 
 variable "tags" {
