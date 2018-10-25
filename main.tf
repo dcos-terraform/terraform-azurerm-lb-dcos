@@ -37,7 +37,7 @@
 
 module "masters" {
   source              = "dcos-terraform/lb-masters/azurerm"
-  version             = "~> 0.0"
+  version             = "~> 0.1.0"
   cluster_name        = "${var.cluster_name}"
   location            = "${var.location}"
   resource_group_name = "${var.resource_group_name}"
@@ -47,7 +47,7 @@ module "masters" {
 
 module "masters-internal" {
   source              = "dcos-terraform/lb-masters-internal/azurerm"
-  version             = "~> 0.0"
+  version             = "~> 0.1.0"
   cluster_name        = "${var.cluster_name}"
   location            = "${var.location}"
   resource_group_name = "${var.resource_group_name}"
@@ -58,7 +58,7 @@ module "masters-internal" {
 
 module "public-agents" {
   source              = "dcos-terraform/lb-public-agents/azurerm"
-  version             = "~> 0.0"
+  version             = "~> 0.1.0"
   cluster_name        = "${var.cluster_name}"
   location            = "${var.location}"
   resource_group_name = "${var.resource_group_name}"
