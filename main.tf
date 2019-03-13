@@ -36,33 +36,36 @@
  */
 
 module "masters" {
-  source              = "dcos-terraform/lb-masters/azurerm"
-  version             = "~> 0.1.0"
-  cluster_name        = "${var.cluster_name}"
-  location            = "${var.location}"
-  resource_group_name = "${var.resource_group_name}"
+  source                  = "dcos-terraform/lb-masters/azurerm"
+  version                 = "~> 0.1.0"
+  cluster_name            = "${var.cluster_name}"
+  location                = "${var.location}"
+  resource_group_name     = "${var.resource_group_name}"
+  master_instance_nic_ids = ["${var.masters_instance_nic_ids}"]
 
   tags = "${var.tags}"
 }
 
 module "masters-internal" {
-  source              = "dcos-terraform/lb-masters-internal/azurerm"
-  version             = "~> 0.1.0"
-  cluster_name        = "${var.cluster_name}"
-  location            = "${var.location}"
-  resource_group_name = "${var.resource_group_name}"
-  subnet_id           = "${var.subnet_id}"
+  source                  = "dcos-terraform/lb-masters-internal/azurerm"
+  version                 = "~> 0.1.0"
+  cluster_name            = "${var.cluster_name}"
+  location                = "${var.location}"
+  resource_group_name     = "${var.resource_group_name}"
+  subnet_id               = "${var.subnet_id}"
+  master_instance_nic_ids = ["${var.masters_instance_nic_ids}"]
 
   tags = "${var.tags}"
 }
 
 module "public-agents" {
-  source              = "dcos-terraform/lb-public-agents/azurerm"
-  version             = "~> 0.1.0"
-  cluster_name        = "${var.cluster_name}"
-  location            = "${var.location}"
-  resource_group_name = "${var.resource_group_name}"
-  additional_rules    = "${var.public_agents_additional_rules}"
+  source                  = "dcos-terraform/lb-public-agents/azurerm"
+  version                 = "~> 0.1.0"
+  cluster_name            = "${var.cluster_name}"
+  location                = "${var.location}"
+  resource_group_name     = "${var.resource_group_name}"
+  additional_rules        = "${var.public_agents_additional_rules}"
+  public_instance_nic_ids = ["${var.public_agents_instance_nic_ids}"]
 
   tags = "${var.tags}"
 }
