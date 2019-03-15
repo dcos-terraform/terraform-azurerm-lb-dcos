@@ -30,7 +30,27 @@ variable "public_agents_instance_nic_ids" {
   type        = "list"
 }
 
+variable "masters_ip_configuration_names" {
+  description = "List of master instancee nic ip configuration names"
+  type        = "list"
+}
+
+variable "public_agents_ip_configuration_names" {
+  description = "List of public agents instancee nic ip configuration names"
+  type        = "list"
+}
+
 variable "public_agents_additional_rules" {
   description = "Additional list of rules for public agents. These Rules are an additon to the default rules."
   default     = []
+}
+
+# Number of Masters
+variable "num_masters" {
+  description = "Specify the amount of masters. For redundancy you should have at least 3"
+}
+
+# Number of Public Agents
+variable "num_public_agents" {
+  description = "Specify the amount of public agents. These agents will host marathon-lb and edgelb"
 }

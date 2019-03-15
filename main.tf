@@ -36,36 +36,42 @@
  */
 
 module "masters" {
-  source                  = "dcos-terraform/lb-masters/azurerm"
-  version                 = "~> 0.1.0"
-  cluster_name            = "${var.cluster_name}"
-  location                = "${var.location}"
-  resource_group_name     = "${var.resource_group_name}"
-  master_instance_nic_ids = ["${var.masters_instance_nic_ids}"]
+  source                 = "dcos-terraform/lb-masters/azurerm"
+  version                = "~> 0.1.0"
+  cluster_name           = "${var.cluster_name}"
+  location               = "${var.location}"
+  resource_group_name    = "${var.resource_group_name}"
+  instance_nic_ids       = ["${var.masters_instance_nic_ids}"]
+  ip_configuration_names = ["${var.masters_ip_configuration_names}"]
+  num                    = "${var.num_masters}"
 
   tags = "${var.tags}"
 }
 
 module "masters-internal" {
-  source                  = "dcos-terraform/lb-masters-internal/azurerm"
-  version                 = "~> 0.1.0"
-  cluster_name            = "${var.cluster_name}"
-  location                = "${var.location}"
-  resource_group_name     = "${var.resource_group_name}"
-  subnet_id               = "${var.subnet_id}"
-  master_instance_nic_ids = ["${var.masters_instance_nic_ids}"]
+  source                 = "dcos-terraform/lb-masters-internal/azurerm"
+  version                = "~> 0.1.0"
+  cluster_name           = "${var.cluster_name}"
+  location               = "${var.location}"
+  resource_group_name    = "${var.resource_group_name}"
+  subnet_id              = "${var.subnet_id}"
+  instance_nic_ids       = ["${var.masters_instance_nic_ids}"]
+  ip_configuration_names = ["${var.masters_ip_configuration_names}"]
+  num                    = "${var.num_masters}"
 
   tags = "${var.tags}"
 }
 
 module "public-agents" {
-  source                  = "dcos-terraform/lb-public-agents/azurerm"
-  version                 = "~> 0.1.0"
-  cluster_name            = "${var.cluster_name}"
-  location                = "${var.location}"
-  resource_group_name     = "${var.resource_group_name}"
-  additional_rules        = "${var.public_agents_additional_rules}"
-  public_instance_nic_ids = ["${var.public_agents_instance_nic_ids}"]
+  source                 = "dcos-terraform/lb-public-agents/azurerm"
+  version                = "~> 0.1.0"
+  cluster_name           = "${var.cluster_name}"
+  location               = "${var.location}"
+  resource_group_name    = "${var.resource_group_name}"
+  additional_rules       = "${var.public_agents_additional_rules}"
+  instance_nic_ids       = ["${var.public_agents_instance_nic_ids}"]
+  ip_configuration_names = ["${var.public_agents_ip_configuration_names}"]
+  num                    = "${var.num_public_agents}"
 
   tags = "${var.tags}"
 }
