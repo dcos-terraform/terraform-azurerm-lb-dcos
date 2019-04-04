@@ -33,32 +33,31 @@ module "lb-dcos" {
 }
 ```
 
-
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
-| cluster_name | Name of the DC/OS cluster | string | - | yes |
-| location | Azure Region | string | - | yes |
-| masters_instance_nic_ids | List of master instance nic ids | list | - | yes |
-| masters_ip_configuration_names | List of master instancee nic ip configuration names | list | - | yes |
-| num_masters | Specify the amount of masters. For redundancy you should have at least 3 | string | - | yes |
-| num_public_agents | Specify the amount of public agents. These agents will host marathon-lb and edgelb | string | - | yes |
-| public_agents_additional_rules | Additional list of rules for public agents. These Rules are an additon to the default rules. | string | `<list>` | no |
-| public_agents_instance_nic_ids | List of public agents instance nic ids | list | - | yes |
-| public_agents_ip_configuration_names | List of public agents instancee nic ip configuration names | list | - | yes |
-| resource_group_name | Name of the azure resource group | string | - | yes |
-| subnet_id | Subnet ID | string | - | yes |
+| cluster\_name | Name of the DC/OS cluster | string | n/a | yes |
+| location | Azure Region | string | n/a | yes |
+| masters\_instance\_nic\_ids | List of master instance nic ids | list | n/a | yes |
+| masters\_ip\_configuration\_names | List of master instancee nic ip configuration names | list | n/a | yes |
+| num\_masters | Specify the amount of masters. For redundancy you should have at least 3 | string | n/a | yes |
+| num\_public\_agents | Specify the amount of public agents. These agents will host marathon-lb and edgelb | string | n/a | yes |
+| public\_agents\_additional\_rules | Additional list of rules for public agents. These Rules are an additon to the default rules. | list | `<list>` | no |
+| public\_agents\_instance\_nic\_ids | List of public agents instance nic ids | list | n/a | yes |
+| public\_agents\_ip\_configuration\_names | List of public agents instancee nic ip configuration names | list | n/a | yes |
+| resource\_group\_name | Name of the azure resource group | string | n/a | yes |
+| subnet\_id | Subnet ID | string | n/a | yes |
 | tags | Add custom tags to all resources | map | `<map>` | no |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| masters-internal.backend_address_pool | Public backend address pool ID |
-| masters-internal.lb_address | LB Address |
-| masters.backend_address_pool | Public backend address pool ID |
-| masters.lb_address | LB Address |
-| public-agents.backend_address_pool | Public backend address pool ID |
-| public-agents.lb_address | LB Address |
+| masters-internal.backend\_address\_pool | backend address pool |
+| masters-internal.lb\_address | lb address |
+| masters.backend\_address\_pool | backend address pool |
+| masters.lb\_address | lb address |
+| public-agents.backend\_address\_pool | backend address pool |
+| public-agents.lb\_address | lb address |
 
