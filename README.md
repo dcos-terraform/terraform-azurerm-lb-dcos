@@ -40,7 +40,13 @@ module "lb-dcos" {
 |------|-------------|:----:|:-----:|:-----:|
 | cluster_name | Name of the DC/OS cluster | string | - | yes |
 | location | Azure Region | string | - | yes |
+| masters_instance_nic_ids | List of master instance nic ids | list | - | yes |
+| masters_ip_configuration_names | List of master instancee nic ip configuration names | list | - | yes |
+| num_masters | Specify the amount of masters. For redundancy you should have at least 3 | string | - | yes |
+| num_public_agents | Specify the amount of public agents. These agents will host marathon-lb and edgelb | string | - | yes |
 | public_agents_additional_rules | Additional list of rules for public agents. These Rules are an additon to the default rules. | string | `<list>` | no |
+| public_agents_instance_nic_ids | List of public agents instance nic ids | list | - | yes |
+| public_agents_ip_configuration_names | List of public agents instancee nic ip configuration names | list | - | yes |
 | resource_group_name | Name of the azure resource group | string | - | yes |
 | subnet_id | Subnet ID | string | - | yes |
 | tags | Add custom tags to all resources | map | `<map>` | no |
