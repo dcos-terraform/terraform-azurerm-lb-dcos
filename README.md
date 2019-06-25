@@ -41,6 +41,7 @@ module "lb-dcos" {
 | location | Azure Region | string | n/a | yes |
 | masters\_instance\_nic\_ids | List of master instance nic ids | list | n/a | yes |
 | masters\_ip\_configuration\_names | List of master instancee nic ip configuration names | list | n/a | yes |
+| name\_prefix | Name Prefix | string | n/a | yes |
 | num\_masters | Specify the amount of masters. For redundancy you should have at least 3 | string | n/a | yes |
 | num\_public\_agents | Specify the amount of public agents. These agents will host marathon-lb and edgelb | string | n/a | yes |
 | public\_agents\_instance\_nic\_ids | List of public agents instance nic ids | list | n/a | yes |
