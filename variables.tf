@@ -10,6 +10,10 @@ variable "location" {
   description = "Azure Region"
 }
 
+variable "name_prefix" {
+  description = "Name Prefix"
+}
+
 variable "tags" {
   description = "Add custom tags to all resources"
   type        = "map"
@@ -45,12 +49,10 @@ variable "public_agents_additional_rules" {
   default     = []
 }
 
-# Number of Masters
 variable "num_masters" {
   description = "Specify the amount of masters. For redundancy you should have at least 3"
 }
 
-# Number of Public Agents
 variable "num_public_agents" {
   description = "Specify the amount of public agents. These agents will host marathon-lb and edgelb"
 }
