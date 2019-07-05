@@ -39,10 +39,12 @@ module "lb-dcos" {
 |------|-------------|:----:|:-----:|:-----:|
 | cluster\_name | Name of the DC/OS cluster | string | n/a | yes |
 | location | Azure Region | string | n/a | yes |
+| masters\_hostname\_format | [MASTERS] Format the hostname inputs are index+1, region, cluster_name | string | n/a | yes |
 | masters\_instance\_nic\_ids | List of master instance nic ids | list | n/a | yes |
 | name\_prefix | Name Prefix | string | n/a | yes |
 | num\_masters | Specify the amount of masters. For redundancy you should have at least 3 | string | n/a | yes |
 | num\_public\_agents | Specify the amount of public agents. These agents will host marathon-lb and edgelb | string | n/a | yes |
+| public\_agents\_hostname\_format | [PUBLIC AGENTS] Format the hostname inputs are index+1, region, cluster_name | string | n/a | yes |
 | public\_agents\_instance\_nic\_ids | List of public agents instance nic ids | list | n/a | yes |
 | resource\_group\_name | Name of the azure resource group | string | n/a | yes |
 | subnet\_id | Subnet ID | string | n/a | yes |
