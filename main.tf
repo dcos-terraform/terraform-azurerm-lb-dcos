@@ -44,7 +44,6 @@ module "masters" {
   location            = "${var.location}"
   resource_group_name = "${var.resource_group_name}"
   instance_nic_ids    = ["${var.masters_instance_nic_ids}"]
-  hostname_format     = "${var.masters_hostname_format}"
   num                 = "${var.num_masters}"
 
   tags = "${var.tags}"
@@ -60,7 +59,6 @@ module "masters-internal" {
   resource_group_name = "${var.resource_group_name}"
   subnet_id           = "${var.subnet_id}"
   instance_nic_ids    = ["${var.masters_instance_nic_ids}"]
-  hostname_format     = "${var.masters_hostname_format}"
   num                 = "${var.num_masters}"
 
   tags = "${var.tags}"
@@ -76,7 +74,6 @@ module "public-agents" {
   resource_group_name = "${var.resource_group_name}"
   additional_rules    = "${var.public_agents_additional_rules}"
   instance_nic_ids    = ["${var.public_agents_instance_nic_ids}"]
-  hostname_format     = "${var.public_agents_hostname_format}"
   num                 = "${var.num_public_agents}"
 
   tags = "${var.tags}"

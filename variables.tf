@@ -29,17 +29,9 @@ variable "masters_instance_nic_ids" {
   type        = "list"
 }
 
-variable "masters_hostname_format" {
-  description = "[MASTERS] Format the hostname inputs are index+1, region, cluster_name"
-}
-
 variable "public_agents_instance_nic_ids" {
   description = "List of public agents instance nic ids"
   type        = "list"
-}
-
-variable "public_agents_hostname_format" {
-  description = "[PUBLIC AGENTS] Format the hostname inputs are index+1, region, cluster_name"
 }
 
 variable "public_agents_additional_rules" {
