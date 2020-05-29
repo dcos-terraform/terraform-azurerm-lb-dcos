@@ -35,46 +35,53 @@
  *```
  */
 
+provider "azurerm" {
+  version = "~> 2.3"
+  features {
+  }
+}
+
 module "masters" {
   source  = "dcos-terraform/lb-masters/azurerm"
   version = "~> 0.2.0"
 
-  cluster_name        = "${var.cluster_name}"
-  name_prefix         = "${var.name_prefix}"
-  location            = "${var.location}"
-  resource_group_name = "${var.resource_group_name}"
-  instance_nic_ids    = ["${var.masters_instance_nic_ids}"]
-  num                 = "${var.num_masters}"
+  cluster_name        = var.cluster_name
+  name_prefix         = var.name_prefix
+  location            = var.location
+  resource_group_name = var.resource_group_name
+  instance_nic_ids    = [var.masters_instance_nic_ids]
+  num                 = var.num_masters
 
-  tags = "${var.tags}"
+  tags = var.tags
 }
 
 module "masters-internal" {
   source  = "dcos-terraform/lb-masters-internal/azurerm"
   version = "~> 0.2.0"
 
-  cluster_name        = "${var.cluster_name}"
-  name_prefix         = "${var.name_prefix}"
-  location            = "${var.location}"
-  resource_group_name = "${var.resource_group_name}"
-  subnet_id           = "${var.subnet_id}"
-  instance_nic_ids    = ["${var.masters_instance_nic_ids}"]
-  num                 = "${var.num_masters}"
+  cluster_name        = var.cluster_name
+  name_prefix         = var.name_prefix
+  location            = var.location
+  resource_group_name = var.resource_group_name
+  subnet_id           = var.subnet_id
+  instance_nic_ids    = [var.masters_instance_nic_ids]
+  num                 = var.num_masters
 
-  tags = "${var.tags}"
+  tags = var.tags
 }
 
 module "public-agents" {
   source  = "dcos-terraform/lb-public-agents/azurerm"
   version = "~> 0.2.0"
 
-  cluster_name        = "${var.cluster_name}"
-  name_prefix         = "${var.name_prefix}"
-  location            = "${var.location}"
-  resource_group_name = "${var.resource_group_name}"
-  additional_rules    = "${var.public_agents_additional_rules}"
-  instance_nic_ids    = ["${var.public_agents_instance_nic_ids}"]
-  num                 = "${var.num_public_agents}"
+  cluster_name        = var.cluster_name
+  name_prefix         = var.name_prefix
+  location            = var.location
+  resource_group_name = var.resource_group_name
+  additional_rules    = var.public_agents_additional_rules
+  instance_nic_ids    = [var.public_agents_instance_nic_ids]
+  num                 = var.num_public_agents
 
-  tags = "${var.tags}"
+  tags = var.tags
 }
+
