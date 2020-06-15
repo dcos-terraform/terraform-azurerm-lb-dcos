@@ -16,7 +16,7 @@ variable "name_prefix" {
 
 variable "tags" {
   description = "Add custom tags to all resources"
-  type        = "map"
+  type        = map(string)
   default     = {}
 }
 
@@ -26,12 +26,12 @@ variable "subnet_id" {
 
 variable "masters_instance_nic_ids" {
   description = "List of master instance nic ids"
-  type        = "list"
+  type        = list(string)
 }
 
 variable "public_agents_instance_nic_ids" {
   description = "List of public agents instance nic ids"
-  type        = "list"
+  type        = list(string)
 }
 
 variable "public_agents_additional_rules" {
@@ -46,3 +46,4 @@ variable "num_masters" {
 variable "num_public_agents" {
   description = "Specify the amount of public agents. These agents will host marathon-lb and edgelb"
 }
+
