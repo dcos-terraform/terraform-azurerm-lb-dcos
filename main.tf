@@ -35,6 +35,11 @@
  *```
  */
 
+provider "azurerm" {
+  version = "~> 2.0"
+  features {}
+}
+
 module "masters" {
   source  = "dcos-terraform/lb-masters/azurerm"
   version = "~> 0.3.0"
@@ -45,6 +50,10 @@ module "masters" {
   resource_group_name = var.resource_group_name
   instance_nic_ids    = var.masters_instance_nic_ids
   num                 = var.num_masters
+
+  providers = {
+    azurerm = azurerm
+  }
 
   tags = var.tags
 }
@@ -61,6 +70,10 @@ module "masters-internal" {
   instance_nic_ids    = var.masters_instance_nic_ids
   num                 = var.num_masters
 
+  providers = {
+    azurerm = azurerm
+  }
+
   tags = var.tags
 }
 
@@ -75,6 +88,10 @@ module "public-agents" {
   additional_rules    = var.public_agents_additional_rules
   instance_nic_ids    = var.public_agents_instance_nic_ids
   num                 = var.num_public_agents
+
+  providers = {
+    azurerm = azurerm
+  }
 
   tags = var.tags
 }
